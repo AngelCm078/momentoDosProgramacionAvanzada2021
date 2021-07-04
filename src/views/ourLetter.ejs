@@ -1,0 +1,52 @@
+<%- include ('partials/_header', {title: 'Nuestra Carta' }); -%>
+    <div class="main">
+        <div class="container mar__top-20">
+            <div class="row">
+                <% for(var i=0; i < menu.length; i++) { %>
+                    <div class="col-md-4">
+                        <div class="card ">
+                            <div class="card-header text-center">
+                                <h5 class="card-title">
+                                    <i class="fas fa-utensils"></i>
+                                    <%= menu[i].foodPlate %>
+                                </h5>
+                            </div>
+                            <div class="card-body"> 
+                                <% if(menu[i].available) { %>
+                                    <p class="card-text btn btn-success">
+                                        Disponible.
+                                    </p>
+                                <% } else { %>
+                                    <p class="card-text btn btn-danger">
+                                        Agotado.
+                                    </p>
+                                <% } %>                               
+
+                                <p class="card-text text-center card-desc">
+                                    <%= menu[i].description %>
+                                </p>
+                                <p class="card-text card-price">
+                                    <strong>$<%= menu[i].price %></strong>
+                                </p>
+
+                                <div class="card-footer text-center">
+                                    <% if(menu[i].available) { %>
+                                        <a href="/statusFoodPlate/<%= menu[i]._id %>"class="btn btn-success" title="Status"><i class="fas fa-laugh"></i></a>
+                                    <% } else { %>
+                                        <a href="/statusFoodPlate/<%= menu[i]._id %>"class="btn btn-dark" title="Status"><i class="fas fa-sad-tear"></i></a>
+                                    <% } %>
+                                    <a href="/editFoodPlate/<%= menu[i]._id %>" class="btn btn-info"
+                                        title="Editar plato."><i class="fas fa-pen"></i></a>
+                                    <a href="/deleteFoodPlate/<%= menu[i]._id %>" class="btn btn-danger"
+                                        title="Retirar plato."><i class="fas fa-trash-alt"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+
+    <%- include ('partials/_footer'); -%>
