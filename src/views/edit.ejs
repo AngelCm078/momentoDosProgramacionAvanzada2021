@@ -7,8 +7,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
+                        <div class="card-header text-center">
+                            <h5 class="card-title">
+                                <i class="fas fa-utensils"></i>
+                                Edit Food Plate
+                            </h5>
+                        </div>
                         <div class="card-body">
-                            <h3>Edit Food Plate</h3>
                             <form action="/editFoodPlates/<%= menu._id %>" method="post">
                                 <div class="form-group">
                                     <input class="form-control" type="text" name="foodPlate" placeholder="Food Plate"
@@ -22,9 +27,11 @@
                                     <input class="form-control" type="number" name="price" placeholder="Price"
                                         value="<%= menu.price %>">
                                 </div>
-                                <button class="btn btn-primary" type="submit">
-                                    Edit
-                                </button>
+                                <div class="card-footer text-center">
+                                    <button class="btn btn-primary" type="submit">
+                                        SAVE
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
